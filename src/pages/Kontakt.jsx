@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { COMPANY } from '../data/site.js'
 import PageHero from '../components/PageHero.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -135,7 +136,7 @@ export default function Kontakt() {
               </button>
               <p className="text-xs text-muted">
                 Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß{' '}
-                <a href="/datenschutz" className="underline hover:text-ink">Datenschutzerklärung</a> zu.
+                <Link to="/datenschutz" className="underline hover:text-ink">Datenschutzerklärung</Link> zu.
               </p>
             </form>
           )}
