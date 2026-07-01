@@ -1,4 +1,4 @@
-import { img, IMAGES, COMPANY } from '../data/site.js'
+import { img, IMAGES } from '../data/site.js'
 import PageHero from '../components/PageHero.jsx'
 import SectionHeading from '../components/SectionHeading.jsx'
 import Stats from '../components/Stats.jsx'
@@ -9,19 +9,19 @@ import CtaBand from '../components/CtaBand.jsx'
 const VALUES = [
   {
     t: 'Aus einer Hand',
-    d: 'Holz und Elektro laufen bei uns nicht nebeneinander, sondern ineinander. Ein Plan, ein Team, eine Verantwortung.',
+    d: 'Tischler und Elektriker aus demselben Team. Sie koordinieren nichts – wir stimmen Holz und Strom selbst ab.',
   },
   {
-    t: 'Meisterlich',
-    d: 'Beide Gewerke werden von geprüften Meistern geführt. Ausbildung, Normen und Sorgfalt sind für uns kein Extra.',
+    t: 'Sauber gearbeitet',
+    d: 'Fachgerecht ausgeführt, ordentlich hinterlassen. Wir arbeiten so, wie wir es bei uns selbst haben wollen würden.',
   },
   {
     t: 'Termintreu',
-    d: 'Ein verbindlicher Ablaufplan, an den wir uns halten. Verzögerungen kommunizieren wir früh und ehrlich.',
+    d: 'Zugesagter Termin, eingehaltener Termin. Verschiebt sich etwas, hören Sie es früh von uns – nicht erst hinterher.',
   },
   {
     t: 'Regional',
-    d: 'Kurze Wege, feste Ansprechpartner und Materialien von Partnern, die wir seit Jahren kennen.',
+    d: 'Kurze Wege, feste Ansprechpartner, erreichbar wenn es klemmt. Bei Ihnen sind immer dieselben Gesichter.',
   },
 ]
 
@@ -30,8 +30,8 @@ export default function UeberUns() {
     <>
       <PageHero
         eyebrow="Über uns"
-        title="Handwerk, das zwei Gewerke unter einem Dach vereint"
-        intro={`${COMPANY.foundedText} – mit dem Anspruch, Bauen einfacher zu machen: weniger Schnittstellen, mehr Verantwortung.`}
+        title="Zwei Handwerke, ein Team, ein Ansprechpartner"
+        intro="Holz- & Elektrobau Schröder verbindet Tischlerei und Elektro unter einem Dach. Ein Anruf, ein Termin, eine Rechnung – und ein Team, das beides sauber erledigt."
       />
 
       {/* Geschichte: Text + versetztes Bild */}
@@ -39,23 +39,23 @@ export default function UeberUns() {
         <div>
           <SectionHeading
             eyebrow="Unsere Geschichte"
-            title="Vom Zimmereibetrieb zum Doppel-Handwerk"
+            title="Vom Holz zum Strom – beides aus einer Hand"
           />
           <div className="mt-6 space-y-5 text-muted leading-relaxed">
             <p>
-              Angefangen hat alles in der Zimmerei: Dachstühle, Aufstockungen,
-              Innenausbau. Über die Jahre kam eine Frage auf jeder Baustelle
-              zurück – „Und wer macht die Elektrik?"
+              Angefangen haben wir mit dem Holz: Reparaturen, Instandsetzungen,
+              Fenster und Türen. Und bei fast jedem Auftrag kam dieselbe Frage –
+              „Und wer kümmert sich um die Elektrik?"
             </p>
             <p>
-              Statt sie weiterzureichen, haben wir sie zu unserer eigenen
-              gemacht. Heute vereint Holz- &amp; Elektrobau Schröder beide
-              Gewerke unter einem Dach. Das spart unseren Kundinnen und Kunden
-              Koordination, Wartezeit und Reibungsverluste an den Schnittstellen.
+              Statt Kundinnen und Kunden weiterzuschicken, haben wir die Elektrik
+              zu unserem zweiten Handwerk gemacht. Heute erledigt Holz- &amp;
+              Elektrobau Schröder beides selbst – vom klemmenden Fenster bis zur
+              defekten Steckdose.
             </p>
             <p>
-              Was gleich geblieben ist: der Anspruch, jedes Projekt so zu bauen,
-              als wäre es das eigene Haus.
+              Das erspart Ihnen das Koordinieren zwischen zwei Betrieben: ein
+              Ansprechpartner, ein Termin, ein Ergebnis, das passt.
             </p>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function UeberUns() {
           <div className="absolute -left-6 bottom-8 hidden w-44 overflow-hidden rounded-xl border-4 border-paper shadow-xl sm:block">
             <img
               src={img(IMAGES.electricianPortrait, 400)}
-              alt="Elektromeister vor dem Verteiler"
+              alt="Beschrifteter Sicherungskasten"
               className="aspect-[4/5] h-full w-full object-cover"
               loading="lazy"
               width="400"
@@ -87,7 +87,7 @@ export default function UeberUns() {
       {/* Werte */}
       <section className="bg-paper-2/40 py-20 sm:py-28">
         <div className="wrap">
-          <SectionHeading eyebrow="Haltung" title="Vier Prinzipien, die jede Baustelle prägen" />
+          <SectionHeading eyebrow="Haltung" title="Vier Prinzipien, nach denen wir arbeiten" />
           <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2">
             {VALUES.map((v, i) => (
               <Reveal key={v.t} delay={i * 80} className="flex gap-5">
@@ -109,7 +109,7 @@ export default function UeberUns() {
 
       <CtaBand
         title="Lernen wir uns kennen."
-        text="Wir schauen uns Ihr Vorhaben persönlich an und sagen ehrlich, was sinnvoll ist."
+        text="Sagen Sie uns kurz, was ansteht – wir melden uns werktags innerhalb von 24 Stunden und sagen ehrlich, was sinnvoll ist."
       />
     </>
   )

@@ -12,7 +12,7 @@ export default function Testimonials() {
           light
           eyebrow="Stimmen"
           title="Was Kundinnen und Kunden sagen"
-          intro="Ehrliche Rückmeldungen von Bauherren, die beide Gewerke aus einer Hand erlebt haben."
+          intro="Ehrliche Rückmeldungen von Kundinnen und Kunden, die Holz und Strom aus einer Hand bekommen haben."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">

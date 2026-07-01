@@ -15,11 +15,11 @@ export default function Logo({ light = false, className = '' }) {
         <span className="h-2.5 w-2.5 rounded-full bg-ember" />
         <span className="h-2.5 w-2.5 rounded-full bg-blue" />
       </span>
-      <span className={`font-display text-[1.2rem] font-semibold leading-none tracking-tight ${ink}`}>
-        Schröder
-        <span className={`ml-1 font-body text-[0.6rem] font-medium uppercase tracking-eyebrow align-middle ${light ? 'text-blue-bright' : 'text-muted'}`}>
-          Holz&nbsp;·&nbsp;Elektro
-        </span>
+      <span className="font-display text-[1.2rem] font-semibold leading-none tracking-tight">
+        <span className="text-ember">Holz-</span>
+        <span className={ink}> &amp; </span>
+        <span className={light ? 'text-blue-bright' : 'text-blue'}>Elektrobau</span>
+        <span className={`ml-1 ${ink}`}>Schröder</span>
       </span>
     </span>
   )

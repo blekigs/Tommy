@@ -26,22 +26,19 @@ export default function Home() {
           {/* Text (min-w-0 erlaubt Umbruch langer Wörter statt Überlauf) */}
           <div className="min-w-0 lg:col-span-6">
             <Reveal>
-              <span className="eyebrow eyebrow--light">Meisterbetrieb · Holz &amp; Elektro</span>
+              <span className="eyebrow eyebrow--light">Professionalität · Tischlerei &amp; Elektrobau</span>
             </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-5 font-display text-[2.05rem] font-semibold leading-[1.0] tracking-tight [hyphens:auto] xs:text-[2.5rem] sm:text-6xl sm:leading-[0.98] lg:text-[4.2rem]">
                 Zwei Gewerke.
-                <br />
-                Eine Baustelle.
                 <br />
                 <span className="text-blue-bright">Ein Ansprechpartner.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-paper/70">
-                Vom Dachstuhl bis zur letzten Steckdose: Wir planen, bauen und
-                installieren aus einer Hand – meisterlich, termintreu und
-                regional verwurzelt.
+                Holz und Strom aus einer Hand: reparieren, montieren,
+                installieren – termintreu, sauber und aus Ihrer Region.
               </p>
             </Reveal>
             <Reveal delay={240}>
@@ -102,17 +99,12 @@ export default function Home() {
           <div className="aspect-[5/6] overflow-hidden rounded-2xl sm:aspect-[4/5]">
             <img
               src={img(IMAGES.carpenterSaw, 800)}
-              alt="Zimmermann bei der Arbeit an der Kappsäge"
+              alt="Tür-Reparatur an der Werkbank in der Werkstatt"
               className="h-full w-full object-cover"
               loading="lazy"
               width="800"
               height="1000"
             />
-          </div>
-          {/* Floating-Badge (überlappt das Bild) */}
-          <div className="absolute -bottom-6 right-6 rounded-2xl bg-paper px-6 py-5 shadow-xl ring-1 ring-line lg:-right-8">
-            <div className="font-display text-4xl font-semibold text-blue">35+</div>
-            <div className="text-xs text-muted">Jahre am Bau</div>
           </div>
         </Reveal>
 
@@ -120,7 +112,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Wer wir sind"
             title="Ein Betrieb, der Holz und Strom zusammendenkt"
-            intro="Die meisten Bauherren jonglieren Zimmerei, Elektriker und Termine getrennt. Bei uns läuft beides zusammen – geplant von denselben Meistern, ausgeführt vom selben Team."
+            intro="Kein Koordinieren zwischen zwei Gewerken: Holz und Strom kommen bei uns aus einem Team – abgestimmt, termintreu, aus einer Hand."
           />
           <Reveal delay={100}>
             <blockquote className="mt-8 border-l-2 border-ember pl-5 text-lg italic text-ink/80">
@@ -130,7 +122,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={160}>
             <div className="mt-8 flex flex-wrap gap-2">
-              {['Meisterbetrieb', 'Festpreisgarantie', 'Termintreu', 'Regional'].map((chip) => (
+              {['Professionelle Montage', 'Festpreisgarantie', 'Termintreu', 'Regional'].map((chip) => (
                 <span
                   key={chip}
                   className="rounded-full border border-line bg-paper-2/50 px-4 py-2 text-sm text-ink/75"
@@ -161,7 +153,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Was wir können"
           title="Zwei Gewerke, tief beherrscht"
-          intro="Holzbau und Elektroinstallation – jeweils als eigenständiges Meister-Handwerk, im Zusammenspiel unschlagbar."
+          intro="Tischlerei und Elektro – zwei Handwerke, ein eingespieltes Team, das Hand in Hand arbeitet."
         />
 
         <div className="mt-16 space-y-16 sm:space-y-24">

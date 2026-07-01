@@ -4,26 +4,38 @@
 //  Platzhalter sind klar mit [PLATZHALTER] markiert und leicht zu ersetzen.
 // ============================================================
 
-// Unsplash-Bilder werden über eine Helper-Funktion mit den passenden
-// Maßen geladen (responsive, komprimiert) – siehe img().
-const U = 'https://images.unsplash.com';
-export const img = (id, w = 1200, h = 0) =>
-  `${U}/${id}?auto=format&fit=crop&q=70&w=${w}${h ? `&h=${h}` : ''}`;
+// Lokale, KI-generierte Bilder (personenfrei). Werden von Vite gebündelt und
+// beim Single-File-Build inline eingebettet, damit die Seite überall läuft.
+import timberHouse from '../assets/timberHouse.jpg';
+import carpenterSaw from '../assets/carpenterSaw.jpg';
+import electricianWiring from '../assets/electricianWiring.jpg';
+import electricianPortrait from '../assets/electricianPortrait.jpg';
+import schematic from '../assets/schematic.jpg';
+import blueprint from '../assets/blueprint.jpg';
+import drillWall from '../assets/drillWall.jpg';
+import insulation from '../assets/insulation.jpg';
+import toolsRack from '../assets/toolsRack.jpg';
+import interior from '../assets/interior.jpg';
+import handshake from '../assets/handshake.jpg';
+import rooftops from '../assets/rooftops.jpg';
 
-// Kuratierte, motivgeprüfte Bild-IDs (Holzbau + Elektro).
+// Helper behält seine Signatur (id, w, h) – die Größenargumente werden bei
+// lokalen Assets ignoriert; zurückgegeben wird direkt die gebündelte URL.
+export const img = (id) => id;
+
 export const IMAGES = {
-  timberHouse: 'photo-1600585154340-be6161a56a0c', // moderner Holzbau (Hero)
-  carpenterSaw: 'photo-1601058268499-e52658b8bb88', // Tischler an der Säge
-  electricianWiring: 'photo-1621905251189-08b45d6a269e', // Elektriker verkabelt
-  electricianPortrait: 'photo-1621905252507-b35492cc74b4', // Elektriker Porträt
-  schematic: 'photo-1581092160562-40aa08e78837', // Elektro-Planung
-  blueprint: 'photo-1503387762-592deb58ef4e', // Bauplanung am Holztisch
-  drillWall: 'photo-1504148455328-c376907d081c', // Akkuschrauber Detail
-  insulation: 'photo-1607400201889-565b1ee75f8e', // Dämmung / Trockenbau
-  toolsRack: 'photo-1530124566582-a618bc2615dc', // Werkzeug-Detail
-  interior: 'photo-1600566753086-00f18fb6b3ea', // heller Innenausbau (Referenz)
-  handshake: 'photo-1580893246395-52aead8960dc', // Handschlag / Vertrauen
-  rooftops: 'photo-1516156008625-3a9d6067fab5', // Siedlung (Referenz)
+  timberHouse,          // moderner Holzbau (Hero)
+  carpenterSaw,         // Tischlerei: Tür-Reparatur an der Werkbank
+  electricianWiring,    // Elektro: Abzweigdose verdrahtet
+  electricianPortrait,  // Elektro: beschrifteter Verteiler
+  schematic,            // Elektro-Schaltplan + Messtechnik
+  blueprint,            // Bauplanung / Grundriss
+  drillWall,            // Akkuschrauber Detail
+  insulation,           // Dämmung / Trockenbau
+  toolsRack,            // Werkzeugwand
+  interior,             // heller Raum mit Fenster & Tür
+  handshake,            // Schlüssel + Vertrag (Übergabe)
+  rooftops,             // Elektro-Installation (Referenz)
 };
 
 // --- Firmen-Stammdaten (Platzhalter, später einsetzen) ---
@@ -65,61 +77,59 @@ export const NAV = [
 
 // --- Kennzahlen (Stats) ---
 export const STATS = [
-  { value: '35+', label: 'Jahre Handwerk' },
   { value: '2', label: 'Gewerke, ein Team' },
-  { value: '800+', label: 'Projekte umgesetzt' },
-  { value: '100 %', label: 'Meisterbetrieb' },
+  { value: '3000+', label: 'Kunden' },
 ];
 
 // --- Leistungen: zwei Kategorien (Tabs) mit je eigenem Bild ---
 export const SERVICES = {
   holzbau: {
     key: 'holzbau',
-    tab: 'Holzbau',
-    lead: 'Vom Dachstuhl bis zum Innenausbau – tragende und sichtbare Konstruktionen aus massivem Holz, gefertigt in unserer eigenen Werkstatt.',
+    tab: 'Tischlerei',
+    lead: 'Wenn Holz klemmt, hakt oder raus muss: Wir reparieren, setzen instand und tauschen Fenster & Türen – sauber und zuverlässig.',
     items: [
       {
-        title: 'Dachstühle & Zimmerei',
+        title: 'Reparaturen',
         image: IMAGES.carpenterSaw,
-        text: 'Abbund, Aufrichten, Sanierung. Wir konstruieren Dachstühle nach Maß – vom Neubau bis zur denkmalgerechten Instandsetzung alter Balkenlagen.',
-        points: ['Neubau & Aufstockung', 'Dachsanierung', 'Sichtdachstühle'],
+        text: 'Klemmende Türen, lose Verbindungen, Schäden am Holz – wir bringen alles wieder in Form.',
+        points: ['Möbel & Einbauten', 'Holzschäden', 'Nachjustierung'],
       },
       {
-        title: 'Innenausbau & Trockenbau',
+        title: 'Instandsetzung',
         image: IMAGES.insulation,
-        text: 'Wände, Decken, Böden und Dämmung – handwerklich sauber ausgeführt, energetisch durchdacht und termintreu montiert.',
-        points: ['Trennwände & Decken', 'Dämmung', 'Böden & Vertäfelung'],
+        text: 'Wir erhalten, was bleiben soll: fachgerecht aufgearbeitet und langlebig ausgebessert.',
+        points: ['Aufarbeitung', 'Ausbesserung', 'Oberflächen'],
       },
       {
-        title: 'Terrassen & Carports',
-        image: IMAGES.timberHouse,
-        text: 'Witterungsbeständige Holzkonstruktionen für draußen: Terrassen, Carports und Überdachungen, die Jahrzehnte halten.',
-        points: ['Terrassendielen', 'Carports', 'Überdachungen'],
+        title: 'Fenster & Türen',
+        image: IMAGES.interior,
+        text: 'Einbauen, tauschen, abdichten – für Fenster und Türen, die schließen wie am ersten Tag.',
+        points: ['Einbau & Austausch', 'Abdichtung', 'Beschläge'],
       },
     ],
   },
   elektrobau: {
     key: 'elektrobau',
     tab: 'Elektrobau',
-    lead: 'Planung, Installation und Prüfung Ihrer Elektrik – normgerecht, zukunftssicher und aus derselben Hand, die auch das Holz verbaut.',
+    lead: 'Strom, der einfach läuft: Wir reparieren, warten und installieren Ihre Elektrik – normgerecht und ohne Umwege.',
     items: [
       {
-        title: 'Elektroinstallation',
+        title: 'Reparatur',
         image: IMAGES.electricianWiring,
-        text: 'Komplette Installation für Neubau und Sanierung: von der Unterverteilung bis zur letzten Steckdose – normgerecht nach VDE.',
-        points: ['Neubau & Sanierung', 'Verteilerbau', 'VDE-Prüfung'],
+        text: 'Steckdose tot, Sicherung raus, Kabelbruch? Wir finden den Fehler und beheben ihn – zügig und sauber.',
+        points: ['Fehlersuche', 'Störungsdienst', 'Instandsetzung'],
       },
       {
-        title: 'Smart Home & KNX',
+        title: 'Wartung',
         image: IMAGES.schematic,
-        text: 'Licht, Heizung und Beschattung intelligent vernetzt. Wir planen und programmieren Ihr Zuhause – nachrüstbar und herstellerunabhängig.',
-        points: ['KNX-Bussysteme', 'Lichtsteuerung', 'Nachrüstung'],
+        text: 'Regelmäßig geprüft, sicher betrieben – wir halten Ihre Elektrik zuverlässig in Schuss.',
+        points: ['E-Check', 'Prüfprotokoll', 'Sicherheit'],
       },
       {
-        title: 'PV, Ladeinfrastruktur & Zählertausch',
+        title: 'Elektroinstallation',
         image: IMAGES.electricianPortrait,
-        text: 'Photovoltaik, Wallbox und moderne Messtechnik – wir bringen Ihre Elektrik auf den Stand der Energiewende.',
-        points: ['Wallbox / E-Auto', 'PV-Anbindung', 'Zählerschrank'],
+        text: 'Von der Steckdose bis zur Verteilung – saubere Installation für Neubau und Sanierung, normgerecht nach VDE.',
+        points: ['Neubau & Sanierung', 'Verteilerbau', 'VDE-Norm'],
       },
     ],
   },
@@ -171,52 +181,52 @@ export const PRICE_NOTE =
 export const TESTIMONIALS = [
   {
     quote:
-      'Dachstuhl und komplette Elektrik von einem Betrieb – das hat uns Wochen an Koordination gespart. Sauber, pünktlich, zum vereinbarten Preis.',
+      'Klemmende Tür und ein toter Stromkreis – an einem Termin erledigt. Freundlich, pünktlich und zum fairen Preis.',
     name: 'Familie Berger',
-    role: 'Neubau Einfamilienhaus',
+    role: 'Privatkunde',
   },
   {
     quote:
-      'Die Altbausanierung war anspruchsvoll. Herr Schröder hat mitgedacht, wo andere nur abgearbeitet hätten. Ergebnis: makellos.',
-    name: 'M. Hoffmann',
-    role: 'Altbausanierung',
+      'Alte Fenster raus, neue rein und die Elektrik gleich mit gemacht. Alles sauber, ohne Stress und wie besprochen.',
+    name: 'S. Hoffmann',
+    role: 'Wohnung',
   },
   {
     quote:
-      'Vom KNX-Konzept bis zur Wallbox alles aus einer Hand und verständlich erklärt. Wir würden jederzeit wieder beauftragen.',
-    name: 'Praxis Dr. Lang',
-    role: 'Gewerbeumbau',
+      'Schnell da, Fehler gefunden, repariert. Genau so stellt man sich einen zuverlässigen Handwerker vor.',
+    name: 'M. Krüger',
+    role: 'Einfamilienhaus',
   },
 ];
 
 // --- Galerie: Kategorien mit Tabs ---
 export const GALLERY = {
   holzbau: {
-    tab: 'Holzbau',
+    tab: 'Tischlerei',
     images: [
-      { id: IMAGES.timberHouse, alt: 'Moderner Holzbau in der Abenddämmerung' },
-      { id: IMAGES.carpenterSaw, alt: 'Zimmermann an der Kappsäge' },
-      { id: IMAGES.insulation, alt: 'Dämmarbeiten im Innenausbau' },
-      { id: IMAGES.blueprint, alt: 'Bauplanung am Holztisch' },
-      { id: IMAGES.toolsRack, alt: 'Werkzeug in der Zimmerei' },
+      { id: IMAGES.carpenterSaw, alt: 'Tür-Reparatur an der Werkbank' },
+      { id: IMAGES.interior, alt: 'Heller Raum mit neuen Fenstern und Tür' },
+      { id: IMAGES.insulation, alt: 'Dämm- und Trockenbauarbeiten' },
+      { id: IMAGES.blueprint, alt: 'Bauplanung / Grundriss' },
+      { id: IMAGES.toolsRack, alt: 'Werkzeugwand in der Werkstatt' },
     ],
   },
   elektro: {
     tab: 'Elektro',
     images: [
-      { id: IMAGES.electricianWiring, alt: 'Elektriker bei der Verkabelung' },
-      { id: IMAGES.electricianPortrait, alt: 'Elektromeister vor dem Verteiler' },
-      { id: IMAGES.schematic, alt: 'Elektro-Schaltplan in der Planung' },
-      { id: IMAGES.drillWall, alt: 'Akkubohrer bei der Montage' },
+      { id: IMAGES.electricianWiring, alt: 'Verdrahtete Abzweigdose' },
+      { id: IMAGES.electricianPortrait, alt: 'Beschrifteter Sicherungskasten' },
+      { id: IMAGES.schematic, alt: 'Elektro-Schaltplan mit Messtechnik' },
+      { id: IMAGES.drillWall, alt: 'Akkuschrauber bei der Montage' },
     ],
   },
   referenzen: {
     tab: 'Referenzen',
     images: [
-      { id: IMAGES.interior, alt: 'Fertiger Innenausbau mit Holztreppe' },
-      { id: IMAGES.rooftops, alt: 'Wohnsiedlung von oben' },
-      { id: IMAGES.timberHouse, alt: 'Fertiggestellter Holzbau' },
-      { id: IMAGES.handshake, alt: 'Übergabe per Handschlag' },
+      { id: IMAGES.interior, alt: 'Fertiger Raum mit neuen Fenstern und Tür' },
+      { id: IMAGES.rooftops, alt: 'Saubere Elektroinstallation an der Wand' },
+      { id: IMAGES.timberHouse, alt: 'Modernes Holzhaus in der Abenddämmerung' },
+      { id: IMAGES.handshake, alt: 'Schlüsselübergabe mit unterschriebenem Vertrag' },
     ],
   },
 };
